@@ -1,11 +1,19 @@
 # Benchmark of string searching algorithms in OCaml
 
+# Note
+
+original repp is https://github.com/314eter/ocaml-stringsearch-benchmark.
+
+I could not push the fork because of some git issue. Go see the original in ocaml syntax
+
+Also, the python script doesnt work from here for some reason so, again, go see the https://github.com/314eter/ocaml-stringsearch-benchmark where it does work!
+
 ## Usage
 
 ```sh
+esy install
 ./download.sh
-ocamlbuild benchmark.native
-./benchmark.native > benchmark.csv
+esy test > benchmark.csv
 ./plot.py
 ```
 
