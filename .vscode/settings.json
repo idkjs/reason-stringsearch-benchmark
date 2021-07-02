@@ -1,6 +1,6 @@
 {
 	"ocaml.sandbox": {
-		"kind": "esy",
-		"root": "${workspaceFolder:reason-stringsearch-benchmark}"
+		"kind": "opam",
+		"switch": "4.06.1"
 	}
 }

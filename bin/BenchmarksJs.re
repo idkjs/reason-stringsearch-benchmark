@@ -1,5 +1,7 @@
-open Batteries;
-
+Js.log("Running Test Program:");
+// let () = print_endline(Lib.Util.hello());
+// // open Batteries;
+// open Lib;
 module type Algorithm = {
   let name: string;
   let find_all: (string, string) => int;
@@ -14,6 +16,11 @@ type benchmark = {
 let () = Random.init(0);
 
 let randomstring = n => String.init(n, _ => Random.int(256) |> char_of_int);
+
+let stringRepeat = (s,n) =>
+  s |> Array.make(n) |> Array.to_list |> String.concat("");
+
+let input_file = (str, encoding) => Node.Fs.readFileSync(str, encoding);
 
 let patternlengths = [
   1,
@@ -34,13 +41,18 @@ let patternlengths = [
   65,
   90,
 ];
-
+let left = (s, len) =>
+  if (len >= String.length(s)) {
+    s;
+  } else {
+    String.sub(s, 0, len);
+  };
 let dorian = {
   name: "dorian",
-  text: String.repeat(input_file("doriangray.txt"), 100),
+  text: stringRepeat( input_file("doriangray.txt", `ascii),100),
   patterns:
     List.map(
-      String.left(
+      left(
         "I have worshipped you with far more romance of feeling than a man usually gives to a friend",
       ),
       patternlengths,
@@ -49,10 +61,10 @@ let dorian = {
 
 let wikipedia = {
   name: "wikipedia",
-  text: input_file("wikipedia.txt"),
+  text: input_file("wikipedia.txt", `ascii),
   patterns:
     List.map(
-      String.left(
+      left(
         "Type inference is a technique which allows the compiler to determine from the code the type of each variable and symbol used in the program",
       ),
       patternlengths,
@@ -67,10 +79,10 @@ let random = {
 
 let dna = {
   name: "dna",
-  text: input_file("dna.txt"),
+  text: input_file("dna.txt", `ascii),
   patterns:
     List.map(
-      String.left(
+      left(
         "CACCTAAAATGTAATCTTACACAGGCTGTAGATTATATCTCTGTTTCCAGGAAGCCCCGTGTGTTGCTTTGTGTGTGCATCAGTCTCTCG",
       ),
       patternlengths,
@@ -79,32 +91,32 @@ let dna = {
 
 let aab = {
   name: "aab",
-  text: String.repeat("A", 10000000),
-  patterns: List.map(n => String.repeat("A", n - 1) ++ "B", patternlengths),
+  text: stringRepeat("A", 10000000),
+  patterns: List.map(n => stringRepeat("A", n - 1) ++ "B", patternlengths),
 };
 
 let baa = {
   name: "baa",
-  text: String.repeat("A", 10000000),
-  patterns: List.map(n => "B" ++ String.repeat("A", n - 1), patternlengths),
+  text: stringRepeat("A", 10000000),
+  patterns: List.map(n => "B" ++ stringRepeat("A", n - 1), patternlengths),
 };
 
 let abbc = {
   name: "abbc",
-  text: String.repeat("B", 10000000),
+  text: stringRepeat("B", 10000000),
   patterns:
     List.map(
-      n => "A" ++ String.repeat("B", n - 2) ++ "C",
+      n => "A" ++ stringRepeat("B", n - 2) ++ "C",
       List.tl(patternlengths),
     ),
 };
 
 let bbac = {
   name: "bbac",
-  text: String.repeat("B", 10000000),
+  text: stringRepeat("B", 10000000),
   patterns:
     List.map(
-      n => String.repeat("B", n - 2) ++ "AC",
+      n => stringRepeat("B", n - 2) ++ "AC",
       List.tl(patternlengths),
     ),
 };

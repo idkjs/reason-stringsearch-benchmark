@@ -10,3 +10,6 @@ __pycache__
 dna.txt
 doriangray.txt
 wikipedia.txt
+lib/bs
+*.bs.js
+.bsb.lock

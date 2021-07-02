@@ -1,33 +1,29 @@
 {
-  "name": "stringsearch-benchmarks",
-  "version": "0.1.0",
-  "description": "Reason Stringsearch Benchmarks",
-  "license": "MIT",
-  "esy": {
-    "build": "dune build -p #{self.name}",
-    "buildDev":
-      "refmterr dune build --promote-install-files --root . --only-package #{self.name}",
-    "NOTE": "Optional release Section. Customizes result of `esy release`",
-    "release": { "rewritePrefix": true, "bin": [ "Benchmarks" ] },
-    "buildEnv": { "ODOC_SYNTAX": "re" }
-  },
-  "scripts": {
-    "test": "esy x Benchmarks",
-    "format": "esy dune build @fmt --auto-promote",
-    "doc": "esy dune build @doc"
-  },
-  "dependencies": {
-    "@esy-ocaml/reason": ">= 3.6.0 < 4.0.0",
-    "@opam/batteries": "3.3.0",
-    "@opam/dune": ">=2.6",
-    "@reason-native/console": "*",
-    "@reason-native/pastel": "*",
-    "ocaml": "~4.10.0"
+  "name": "reason-stringsearch-benchmark",
+  "version": "1.0.0",
+  "description": "# Note",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
   },
   "devDependencies": {
-    "@opam/merlin": "*",
-    "@reason-native/rely": "*",
-    "refmterr": "*",
-    "@opam/odoc": "*"
-  }
+    "bs-platform": "^9.0.2"
+  },
+  "scripts": {
+        "build": "bsb -make-world",
+    "start": "bsb -make-world -w",
+    "clean": "bsb -clean-world",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/idkjs/reason-stringsearch-benchmark.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/idkjs/reason-stringsearch-benchmark/issues"
+  },
+  "homepage": "https://github.com/idkjs/reason-stringsearch-benchmark#readme"
 }
