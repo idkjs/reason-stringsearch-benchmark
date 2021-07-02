@@ -7,8 +7,8 @@
       "subdirs": true
     },
     {
-      "dir": "bin",
-      "type": "dev"
+      "dir": "test_js",
+      "files": ["BenchmarksJs.re"]
     }
   ],
   "package-specs": {

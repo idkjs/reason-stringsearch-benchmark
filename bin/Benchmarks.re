@@ -1,5 +1,5 @@
-Console.log("Running Test Program:");
-let () = print_endline(Lib.Util.hello());
+// Console.log("Running Test Program:");
+// let () = print_endline(Lib.Util.hello());
 open Batteries;
 open Lib;
 module type Algorithm = {

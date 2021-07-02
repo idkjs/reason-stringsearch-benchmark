@@ -1,16 +1,12 @@
 {
   "checksum": "b73038b2bbc88e67decf004cc82e19d7",
-  "root": "stringsearch-benchmarks@link-dev:./package.json",
+  "root": "stringsearch-benchmarks@link-dev:./esy.json",
   "node": {
-    "stringsearch-benchmarks@link-dev:./package.json": {
-      "id": "stringsearch-benchmarks@link-dev:./package.json",
+    "stringsearch-benchmarks@link-dev:./esy.json": {
+      "id": "stringsearch-benchmarks@link-dev:./esy.json",
       "name": "stringsearch-benchmarks",
-      "version": "link-dev:./package.json",
-      "source": {
-        "type": "link-dev",
-        "path": ".",
-        "manifest": "package.json"
-      },
+      "version": "link-dev:./esy.json",
+      "source": { "type": "link-dev", "path": ".", "manifest": "esy.json" },
       "overrides": [],
       "dependencies": [
         "ocaml@4.10.2000@d41d8cd9", "@reason-native/pastel@0.3.0@d41d8cd9",

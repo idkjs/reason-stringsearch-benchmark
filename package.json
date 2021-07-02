@@ -10,7 +10,7 @@
     "bs-platform": "^9.0.2"
   },
   "scripts": {
-        "build": "bsb -make-world",
+    "build": "bsb -make-world",
     "start": "bsb -make-world -w",
     "clean": "bsb -clean-world",
     "test": "echo \"Error: no test specified\" && exit 1"
