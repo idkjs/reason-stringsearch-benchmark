@@ -1,0 +1,4 @@
+(executable
+ (name Benchmarks)
+ (public_name Benchmarks)
+ (libraries console.lib lib))
